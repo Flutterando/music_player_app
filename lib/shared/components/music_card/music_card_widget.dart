@@ -3,29 +3,22 @@ import 'package:flutter/material.dart';
 
 import '../../utils/blur_widget.dart';
 
-
 class MusicCardWidget extends StatelessWidget {
-  final Widget image;
-  final Text title;
-  final Text subtitle;
-  final double width;
-  final double height;
+  final String image;
+  final String title;
+  final String subtitle;
 
   const MusicCardWidget({
     Key key,
     @required this.image,
     @required this.title,
     @required this.subtitle,
-    @required this.width,
-    @required this.height,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10),
-      width: this.width,
-      height: this.height,
       decoration: BoxDecoration(
         color: Colors.red,
         borderRadius: BorderRadius.circular(30),
@@ -43,7 +36,10 @@ class MusicCardWidget extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            this.image,
+            Image.asset(
+              this.image,
+              fit: BoxFit.cover,
+            ),
             Positioned(
               bottom: 0,
               left: 0,
@@ -54,26 +50,29 @@ class MusicCardWidget extends StatelessWidget {
                   children: [
                     Container(
                       child: BlurWidget(
+                        back: Container(),
                         front: Container(
-                          padding: EdgeInsets.all(30),
-                          child: Row(
+                          height: 70,
+                          width: double.infinity,
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  this.title,
-                                  this.subtitle,
-                                ],
-                              )
+                              Text(
+                                this.title,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                this.subtitle,
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ],
                           ),
                         ),
-                        back: Container(),
                       ),
                     ),
                   ],
