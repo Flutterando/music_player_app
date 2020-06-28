@@ -88,18 +88,18 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 MusicCardWidget(
                                   title: "Four Tet",
-                                  subtitle: "Teenage Birdsong",
-                                  image: "assets/four_tet.png",
+                                  subtitle: "Floating Points",
+                                  image: "assets/floating_points.png",
                                 ),
                                 MusicCardWidget(
                                   title: "Four Tet",
-                                  subtitle: "Teenage Birdsong",
-                                  image: "assets/four_tet.png",
+                                  subtitle: "Billie Elish",
+                                  image: "assets/billie_elish.png",
                                 ),
                                 MusicCardWidget(
                                   title: "Four Tet",
-                                  subtitle: "Teenage Birdsong",
-                                  image: "assets/four_tet.png",
+                                  subtitle: "Arch Enimy",
+                                  image: "assets/arch_enemy.png",
                                 ),
                               ],
                             );
