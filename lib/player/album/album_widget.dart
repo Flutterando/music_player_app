@@ -9,9 +9,10 @@ class AlbumWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: AspectRatio(
             aspectRatio: 1,
-            child: Image.network(
-              "https://miro.medium.com/max/640/0*i1v1In2Tn4Stnwnl.jpg",
+            child: Image.asset(
+              "assets/floating_points_logo.png",
               fit: BoxFit.cover,
+              filterQuality: FilterQuality.medium,
             ),
           ),
         ),
