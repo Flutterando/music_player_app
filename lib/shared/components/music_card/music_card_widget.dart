@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player_app/app/shared/utils/blur_widget.dart';
+
+import '../../utils/blur_widget.dart';
 
 
 class MusicCardWidget extends StatelessWidget {
