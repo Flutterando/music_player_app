@@ -13,6 +13,7 @@ class SoundWidget extends StatelessWidget {
           child: ProgressWidget(
             value: 60,
             maxValue: 100,
+            color: Colors.white54,
           ),
         ),
       ],

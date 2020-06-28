@@ -13,7 +13,24 @@ class CustomDrawer extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 80),
+          Row(
+            children: List.generate(
+              3,
+              (i) => Container(
+                width: 10,
+                height: 10,
+                margin: EdgeInsets.only(left: 3, top: 25),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    width: 2,
+                    color: Colors.white60,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 60),
           _topSection,
           SizedBox(height: 50),
           _middleSection,
