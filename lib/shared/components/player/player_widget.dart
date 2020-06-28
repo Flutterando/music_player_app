@@ -41,85 +41,77 @@ class PlayerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconTheme(
-      data: IconThemeData(color: Colors.white),
-      child: DefaultTextStyle(
-        style: TextStyle(color: Colors.white),
-        child: Stack(
-          children: [
-            Container(
+    return Stack(
+      children: [
+        Container(
+          height: 100,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+          ),
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+            child: Container(
               height: 100,
               width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-              ),
+              decoration: BoxDecoration(color: Colors.black12),
             ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                child: Container(
-                  height: 100,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.3),
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              height: 100,
-              padding: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Row(
-                children: [
-                  AlbumWidget(),
-                  Expanded(
-                    child: Center(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 30),
-                        constraints: BoxConstraints(maxWidth: 600),
-                        child: Column(
+          ),
+        ),
+        Container(
+          height: 100,
+          padding: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Row(
+            children: [
+              AlbumWidget(),
+              Expanded(
+                child: Center(
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    constraints: BoxConstraints(maxWidth: 600),
+                    child: Column(
+                      children: [
+                        ButtonsWidget(),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            ButtonsWidget(),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 50,
-                                  child: Text(currentSecondsString),
-                                ),
-                                Expanded(
-                                  child: ProgressWidget(
-                                    value: currentSeconds.inSeconds,
-                                    maxValue: maxSeconds.inSeconds,
-                                  ),
-                                ),
-                                Container(
-                                  width: 50,
-                                  alignment: Alignment.bottomRight,
-                                  child: Text(lastSecondsString),
-                                ),
-                              ],
+                            Container(
+                              width: 50,
+                              child: Text(currentSecondsString),
+                            ),
+                            Expanded(
+                              child: ProgressWidget(
+                                value: currentSeconds.inSeconds,
+                                maxValue: maxSeconds.inSeconds,
+                              ),
+                            ),
+                            Container(
+                              width: 50,
+                              alignment: Alignment.bottomRight,
+                              child: Text(lastSecondsString),
                             ),
                           ],
                         ),
-                      ),
+                      ],
                     ),
                   ),
-                  Container(
-                    width: 130,
-                    margin: EdgeInsets.only(right: 30),
-                    child: SoundWidget(),
-                  ),
-                ],
+                ),
               ),
-            ),
-          ],
+              Container(
+                width: 130,
+                margin: EdgeInsets.only(right: 30),
+                child: SoundWidget(),
+              ),
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }
